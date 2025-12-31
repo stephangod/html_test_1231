@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트 연습</h1>
+    <form action = "">
+        성멸: <input type = "text" id="name">
+        <input type ="button" value = "확인" id = "btn">
+    </form>
+    <hr>
+    <div id= "result">
+        결과: 
+    </div>
+
+    <script>
+        //자바스크립트 한줄 주석:
+        /* 자바스크립트 여러줄 주석:*/
+        //자바스크립트는 변수선언시 var 또는 let 키워드로 시작
+        var btn = document.getElementById("btn")
+        // console.log(btn);
+        console.dir(btn);
+
+        //함수 선언은 function키워드로 시작하고 {}블럭 사용
+        function testFn(){
+                document.body.bgColor = "yellow";
+                //id name인 input의 입력 값 가져오기
+                var nameInput = document.getElementById("name");
+                //input에 이력된 데이터를 console에 출력
+                console.log(nameInput.value);
+                var resultBox = document.getElementById("result")
+                console.dir(resultBox);
+                //resultBox.innerText = nameInput.value;
+
+                /*resultBox.innerText = nameInput.value;
+resultBox.innerText = `결과: ${nameInput.value}`;
+을 보면, 두 줄 다 resultBox.innerText를 설정하고 있습니다. 문제는 첫 번째 줄의 값이 두 번째 줄에서 바로 덮어쓰기 된다는 점입니다. 따라서 실제 화면에는 두 번째 줄의 내용만 보입니다.
+
+첫 번째 줄: 입력값 그대로 표시
+
+두 번째 줄: 입력값 앞에 "결과: " 붙여서 표시
+
+즉, 첫 번째 줄은 사실상 필요 없고, 두 번째 줄만 있으면 충분합니다:*/
+                resultBox.innerText = `결과: ${nameInput.value}`;
+                nameInput.value = "";
+                nameInput.focus();
+                
+        }
+        //함수는 호출해야 실행
+        //testFn()
+
+        //이벤트가 발생하면 호출하도록 변경
+        //함수 이름을 속성에 넣어준다
+        //함수 이름에 괄호()붙이면 실행하라는 뜻
+        btn.onclick = testFn;
+        //버튼을 누르면 이벤트 발행
+
+    </script>
+</body>
+</html>
